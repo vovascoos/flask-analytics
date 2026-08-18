@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Статистика</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Аналитика</h1>
+    <div class="stats">
+        <p>Всего визитов: <strong>{{ total }}</strong></p>
+        <p>Уникальных посетителей: <strong>{{ unique }}</strong></p>
+    </div>
+
+    <h2>Страницы</h2>
+    <ul>
+    {% for page, count in pages %}
+        <li>{{ page }}: {{ count }}</li>
+    {% endfor %}
+    </ul>
+
+    <h2>Посещения по дням (последние 7)</h2>
+    <ul>
+    {% for date, count in daily %}
+        <li>{{ date }}: {{ count }}</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
